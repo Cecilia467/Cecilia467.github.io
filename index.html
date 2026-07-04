@@ -32,21 +32,19 @@
 
         #ad-close {
             position: absolute;
-            top: 8px;
-            right: 12px;
-            font-size: 14px;
+            font-size: 10px;
             font-weight: bold;
             color: #ff4444;
             cursor: pointer;
             z-index: 10;
-            background: rgba(255,255,255,0.7);
-            padding: 0 8px;
-            border-radius: 4px;
-            line-height: 1.4;
-            text-shadow: 0 0 4px #fff;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
             font-family: sans-serif;
-            transition: transform 0.2s;
             pointer-events: auto;
+            line-height: 1;
+            user-select: none;
+            transition: transform 0.2s;
         }
         #ad-close:hover {
             transform: scale(1.2);
@@ -55,7 +53,7 @@
     </style>
 </head>
 
-<body>
+<body class="mdui-theme-layout-auto">
     <div id="app" style="display:none;">
         <div class="mdui-container">
             <div class="mdui-typo">
@@ -90,55 +88,86 @@
             var closeBtn = document.getElementById('ad-close');
             var img = document.getElementById('ad-image');
 
-            // 点击广告跳转（关闭按钮除外）
             container.addEventListener('click', function(e) {
-                if (e.target.id === 'ad-close') return;
+                if (e.target === closeBtn) return;
                 window.open('https://moebun.com/aff/QVLQTMXW', '_blank');
             });
 
-            // 移动速度
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                hideAd();
+            });
+
             var speedX = 1.5;
             var speedY = 2.0;
 
             var posX = 0;
             var posY = 0;
 
+            var closeX = 0;
+            var closeY = 0;
+            var btnSpeedX = speedX;
+            var btnSpeedY = speedY;
+
             var animId = null;
             var isRunning = false;
 
             function getDimensions() {
-                var w = container.offsetWidth;
-                var h = container.offsetHeight;
+                var cw = container.offsetWidth;
+                var ch = container.offsetHeight;
                 var W = window.innerWidth;
                 var H = window.innerHeight;
-                return { w, h, W, H };
+                var bw = closeBtn.offsetWidth;
+                var bh = closeBtn.offsetHeight;
+                return { cw, ch, W, H, bw, bh };
             }
 
             function updatePosition() {
                 var dim = getDimensions();
-                if (dim.w === 0 || dim.h === 0) return;
+                if (dim.cw === 0 || dim.ch === 0) return;
 
                 posX += speedX;
                 posY += speedY;
-
                 if (posX < 0) {
                     posX = 0;
                     speedX = -speedX;
-                } else if (posX + dim.w > dim.W) {
-                    posX = dim.W - dim.w;
+                } else if (posX + dim.cw > dim.W) {
+                    posX = dim.W - dim.cw;
                     speedX = -speedX;
                 }
-
                 if (posY < 0) {
                     posY = 0;
                     speedY = -speedY;
-                } else if (posY + dim.h > dim.H) {
-                    posY = dim.H - dim.h;
+                } else if (posY + dim.ch > dim.H) {
+                    posY = dim.H - dim.ch;
                     speedY = -speedY;
                 }
-
                 container.style.left = posX + 'px';
                 container.style.top = posY + 'px';
+
+                var maxX = dim.cw - dim.bw;
+                var maxY = dim.ch - dim.bh;
+                if (maxX < 0) maxX = 0;
+                if (maxY < 0) maxY = 0;
+
+                closeX += btnSpeedX;
+                closeY += btnSpeedY;
+                if (closeX < 0) {
+                    closeX = 0;
+                    btnSpeedX = -btnSpeedX;
+                } else if (closeX > maxX) {
+                    closeX = maxX;
+                    btnSpeedX = -btnSpeedX;
+                }
+                if (closeY < 0) {
+                    closeY = 0;
+                    btnSpeedY = -btnSpeedY;
+                } else if (closeY > maxY) {
+                    closeY = maxY;
+                    btnSpeedY = -btnSpeedY;
+                }
+                closeBtn.style.left = closeX + 'px';
+                closeBtn.style.top = closeY + 'px';
             }
 
             function animate() {
@@ -150,10 +179,18 @@
             function startAnimation() {
                 if (isRunning) return;
                 var dim = getDimensions();
-                posX = (dim.W - dim.w) / 2;
-                posY = (dim.H - dim.h) / 2;
+                posX = (dim.W - dim.cw) / 2;
+                posY = (dim.H - dim.ch) / 2;
                 container.style.left = posX + 'px';
                 container.style.top = posY + 'px';
+                closeX = (dim.cw - dim.bw) / 2;
+                closeY = (dim.ch - dim.bh) / 2;
+                if (closeX < 0) closeX = 0;
+                if (closeY < 0) closeY = 0;
+                closeBtn.style.left = closeX + 'px';
+                closeBtn.style.top = closeY + 'px';
+                btnSpeedX = speedX;
+                btnSpeedY = speedY;
                 isRunning = true;
                 if (animId) cancelAnimationFrame(animId);
                 animate();
@@ -182,12 +219,22 @@
                 window.addEventListener('resize', function() {
                     if (isRunning) {
                         var dim = getDimensions();
-                        if (posX + dim.w > dim.W) posX = dim.W - dim.w;
-                        if (posY + dim.h > dim.H) posY = dim.H - dim.h;
+                        if (posX + dim.cw > dim.W) posX = dim.W - dim.cw;
+                        if (posY + dim.ch > dim.H) posY = dim.H - dim.ch;
                         if (posX < 0) posX = 0;
                         if (posY < 0) posY = 0;
                         container.style.left = posX + 'px';
                         container.style.top = posY + 'px';
+                        var maxX = dim.cw - dim.bw;
+                        var maxY = dim.ch - dim.bh;
+                        if (maxX < 0) maxX = 0;
+                        if (maxY < 0) maxY = 0;
+                        if (closeX > maxX) closeX = maxX;
+                        if (closeY > maxY) closeY = maxY;
+                        if (closeX < 0) closeX = 0;
+                        if (closeY < 0) closeY = 0;
+                        closeBtn.style.left = closeX + 'px';
+                        closeBtn.style.top = closeY + 'px';
                     }
                 });
             }
@@ -196,11 +243,6 @@
                 stopAnimation();
                 container.style.display = 'none';
             }
-
-            closeBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // 阻止冒泡，避免触发容器的跳转
-                hideAd();
-            });
 
             window.showAd = showAd;
 
