@@ -1,283 +1,96 @@
-<!doctype html>
-<html lang="zh-cn">
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <meta name="renderer" content="webkit">
-
-    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css">
-    <title>永久地址发布页</title>
-    <style>
-        #ad-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 50vw;
-            z-index: 9999;
-            cursor: pointer;
-            display: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-            user-select: none;
-        }
-        #ad-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            pointer-events: none;
-        }
-
-        #ad-close {
-            position: absolute;
-            font-size: 10px;
-            font-weight: bold;
-            color: #ff4444;
-            cursor: pointer;
-            z-index: 10;
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            font-family: sans-serif;
-            pointer-events: auto;
-            line-height: 1;
-            user-select: none;
-            transition: transform 0.2s;
-        }
-        #ad-close:hover {
-            transform: scale(1.2);
-            color: #cc0000;
-        }
-    </style>
+	<title>永久地址发布页</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
 </head>
 
-<body class="mdui-theme-layout-auto">
-    <div id="app" style="display:none;">
-        <div class="mdui-container">
-            <div class="mdui-typo">
-                <h1>永久地址发布页<br>
-                    <small>请将本页放入收藏夹</small>
-                </h1>
-                <p><strong>请收藏 131404131.XYZ 官方唯一发布页地址</strong></p>
-                <p><strong>请收藏 CECILIA467.GITHUB.IO 官方备用发布页地址</strong></p>
-                <p>提醒：所有域名均可正常访问，如果您遇到无法访问的情况，请尝试刷新页面。近期<mark>腾讯/小米/华为</mark>平台浏览器和部分地区运营商可能会屏蔽部分网址，请尝试更换浏览器和网络环境访问。为了更流畅的访问体验，我们推荐您安装<a href="https://viayoo.com/"> Via 浏览器</a>，体验更佳</p>
+<body class="is-preload">
 
-                <h2>线路一 <a href="https://yamakiri.cn">点我跳转</a><br>
-                    <small>中国大陆优化线路 30+境内节点超低延迟</small>
-                </h2>
-                <h2>线路二 <a href="https://yamakiri.com">点我跳转</a><br>
-                    <small>全球国际优化线路 15+全球节点极致稳定</small>
-                </h2>
-                <p>如果无法访问，请<a href="mailto:info@yamakiri.com">发邮件</a>给我</p>
-                <p>© 2026 Cecilia467</p>
-            </div>
-        </div>
-    </div>
+	<div id="wrapper">
 
-    <div id="ad-container">
-        <img src="ad.jpg" alt="广告" id="ad-image">
-        <span id="ad-close">（X）</span>
-    </div>
+		<header id="header">
+			<div class="logo">
+				<img src="images/avatar.jpg" alt="avatar">
+			</div>
+			<div class="content">
+				<div class="inner">
+					<h1>永久地址发布页</h1>
+					<h2>131404131.XYZ</h2>
+					<p>所有域名均可<strong>正常访问</strong>，如果您遇到<strong>无法访问</strong>的情况，请尝试<strong>刷新页面</strong>。近期<strong>部分平台浏览器和地区运营商可能会屏蔽部分网址</strong>，请尝试更换浏览器和网络环境访问
+					</p>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#CN">线路1</a></li>
+					<li><a href="#GLOBAL">线路2</a></li>
+					<li><a href="#ABOUT">关于</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
-    <script>
-        (function() {
-            var container = document.getElementById('ad-container');
-            var closeBtn = document.getElementById('ad-close');
-            var img = document.getElementById('ad-image');
+		<div id="main">
 
-            container.addEventListener('click', function(e) {
-                if (e.target === closeBtn) return;
-                window.open('https://moebun.com/aff/QVLQTMXW', '_blank');
-            });
+			<article id="CN">
+				<h2 class="major">线路1 中国大陆优化</h2>
+				<h3>阿里云 ESA 70+境内节点超低延迟</h3>
+				<p>得益于阿里云 ESA 十分优异的境内加速表现，我们做到了帅气的全大陆“深绿”。在Ping拨测中，大陆延迟最低可达1毫秒</p>
+				<p>受限于多方条件，本线路仅支持中国大陆地区访问。</p>
+				<ul class="actions">
+					<li><a href="https://yamakiri.cn/" class="button primary">点我进入</a></li>
+					<li><a href="https://www.itdog.cn/ping/yamakiri.cn" class="button">让我测测</a></li>
+				</ul>
+			</article>
 
-            closeBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                hideAd();
-            });
+			<article id="GLOBAL">
+				<h2 class="major">线路2 国际线路</h2>
+				<h3>阿里云 ESA 20+国际节点超强稳定</h3>
+				<p>得益于阿里云 ESA 相对优异的国际加速表现，我们做到了帅气的环大陆“深绿”。在Ping拨测中，全球延迟最低可达2毫秒</p>
+				<p>受限于多方条件，本线路仅支持非中国大陆地区访问。</p>
+				<ul class="actions">
+					<li><a href="https://yamakiri.com/" class="button primary">点我进入</a></li>
+					<li><a href="https://www.itdog.cn/ping/yamakiri.com" class="button">让我测测</a></li>
+				</ul>
+			</article>
 
-            var speedX = 1.5;
-            var speedY = 2.0;
+			<article id="ABOUT">
+				<h2 class="major">关于</h2>
+				<h3>首先，这不是黄色网站</h3>
+				<p>这只是一个博客的导航而已，炫压抑的最好自己收一收心，这里没有你想看的东西</p>
+				<p>如果有线路无法访问，请发邮件给我</p>
+				<ul class="actions">
+					<li><a href="mailto:info@yamakiri.com" class="button primary">给我发邮件</a></li>
+					<li><a href="https://moebun.com/aff/QVLQTMXW" class="button">广告</a></li>
+				</ul>
+			</article>
 
-            var posX = 0;
-            var posY = 0;
+		</div>
 
-            var closeX = 0;
-            var closeY = 0;
-            var btnSpeedX = speedX;
-            var btnSpeedY = speedY;
+		<footer id="footer">
+			<p class="copyright">&copy; Cecilia467 & <a href="https://html5up.net">HTML5 UP</a>.</p>
+		</footer>
 
-            var animId = null;
-            var isRunning = false;
+	</div>
 
-            function getDimensions() {
-                var cw = container.offsetWidth;
-                var ch = container.offsetHeight;
-                var W = window.innerWidth;
-                var H = window.innerHeight;
-                var bw = closeBtn.offsetWidth;
-                var bh = closeBtn.offsetHeight;
-                return { cw, ch, W, H, bw, bh };
-            }
+	<div id="bg"></div>
 
-            function updatePosition() {
-                var dim = getDimensions();
-                if (dim.cw === 0 || dim.ch === 0) return;
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/main.js"></script>
 
-                posX += speedX;
-                posY += speedY;
-                if (posX < 0) {
-                    posX = 0;
-                    speedX = -speedX;
-                } else if (posX + dim.cw > dim.W) {
-                    posX = dim.W - dim.cw;
-                    speedX = -speedX;
-                }
-                if (posY < 0) {
-                    posY = 0;
-                    speedY = -speedY;
-                } else if (posY + dim.ch > dim.H) {
-                    posY = dim.H - dim.ch;
-                    speedY = -speedY;
-                }
-                container.style.left = posX + 'px';
-                container.style.top = posY + 'px';
-
-                var maxX = dim.cw - dim.bw;
-                var maxY = dim.ch - dim.bh;
-                if (maxX < 0) maxX = 0;
-                if (maxY < 0) maxY = 0;
-
-                closeX += btnSpeedX;
-                closeY += btnSpeedY;
-                if (closeX < 0) {
-                    closeX = 0;
-                    btnSpeedX = -btnSpeedX;
-                } else if (closeX > maxX) {
-                    closeX = maxX;
-                    btnSpeedX = -btnSpeedX;
-                }
-                if (closeY < 0) {
-                    closeY = 0;
-                    btnSpeedY = -btnSpeedY;
-                } else if (closeY > maxY) {
-                    closeY = maxY;
-                    btnSpeedY = -btnSpeedY;
-                }
-                closeBtn.style.left = closeX + 'px';
-                closeBtn.style.top = closeY + 'px';
-            }
-
-            function animate() {
-                if (!isRunning) return;
-                updatePosition();
-                animId = requestAnimationFrame(animate);
-            }
-
-            function startAnimation() {
-                if (isRunning) return;
-                var dim = getDimensions();
-                posX = (dim.W - dim.cw) / 2;
-                posY = (dim.H - dim.ch) / 2;
-                container.style.left = posX + 'px';
-                container.style.top = posY + 'px';
-                closeX = (dim.cw - dim.bw) / 2;
-                closeY = (dim.ch - dim.bh) / 2;
-                if (closeX < 0) closeX = 0;
-                if (closeY < 0) closeY = 0;
-                closeBtn.style.left = closeX + 'px';
-                closeBtn.style.top = closeY + 'px';
-                btnSpeedX = speedX;
-                btnSpeedY = speedY;
-                isRunning = true;
-                if (animId) cancelAnimationFrame(animId);
-                animate();
-            }
-
-            function stopAnimation() {
-                isRunning = false;
-                if (animId) {
-                    cancelAnimationFrame(animId);
-                    animId = null;
-                }
-            }
-
-            function showAd() {
-                container.style.display = 'block';
-                if (img.complete) {
-                    startAnimation();
-                } else {
-                    img.onload = function() {
-                        startAnimation();
-                    };
-                }
-                img.onerror = function() {
-                    startAnimation();
-                };
-                window.addEventListener('resize', function() {
-                    if (isRunning) {
-                        var dim = getDimensions();
-                        if (posX + dim.cw > dim.W) posX = dim.W - dim.cw;
-                        if (posY + dim.ch > dim.H) posY = dim.H - dim.ch;
-                        if (posX < 0) posX = 0;
-                        if (posY < 0) posY = 0;
-                        container.style.left = posX + 'px';
-                        container.style.top = posY + 'px';
-                        var maxX = dim.cw - dim.bw;
-                        var maxY = dim.ch - dim.bh;
-                        if (maxX < 0) maxX = 0;
-                        if (maxY < 0) maxY = 0;
-                        if (closeX > maxX) closeX = maxX;
-                        if (closeY > maxY) closeY = maxY;
-                        if (closeX < 0) closeX = 0;
-                        if (closeY < 0) closeY = 0;
-                        closeBtn.style.left = closeX + 'px';
-                        closeBtn.style.top = closeY + 'px';
-                    }
-                });
-            }
-
-            function hideAd() {
-                stopAnimation();
-                container.style.display = 'none';
-            }
-
-            window.showAd = showAd;
-
-            window.onload = function() {
-                var dialog = mdui.dialog({
-                    title: '不要说我们没有警告过你',
-                    content: '意想不到的事就要发生了，未满18周岁的客官请在监护人陪同下理性地访问本站',
-                    buttons: [
-                        {
-                            text: '退出站点',
-                            onClick: function() {
-                                mdui.snackbar({
-                                    message: '现在你可以安全的关闭浏览器了',
-                                    timeout: 3000
-                                });
-                                dialog.close();
-                            }
-                        },
-                        {
-                            text: '继续访问',
-                            onClick: function() {
-                                document.getElementById('app').style.display = 'block';
-                                if (typeof window.showAd === 'function') {
-                                    window.showAd();
-                                }
-                                dialog.close();
-                            }
-                        }
-                    ]
-                });
-                dialog.open();
-            };
-
-        })();
-    </script>
 </body>
 
 </html>
